@@ -7,3 +7,29 @@ body {
   min-height: 45px;
   background-color: #b9d1f7;
 }
+
+.post {
+  margin-bottom: 10px;
+  h4 {
+    color: RGB(0,0,255);
+  }
+}
+
+#post-id {
+  display: inline-block;
+  vertical-align: 40px;
+  padding-right: 20px;
+  color: gray;
+
+}
+
+#post-body {
+  display: inline-block;
+}
+
+#img {
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+

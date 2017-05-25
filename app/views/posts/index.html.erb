@@ -1,8 +1,13 @@
-<h1>Список статей</h1>
-
 <% @posts.each do |post| %>
-  <h3><%= post.title %></h3>
-  <h3><%= post.text %></h3>
+
+  <div class="post">
+    <div id="post-id"><%= post.id %></div>
+    <div id="post-body">
+      <h4><%= post.title %></h4>
+      <p><%= post.text %></p>
+    </div>
+  </div>
 <% end %>
 
 <%= link_to 'Новая заметка', new_post_path %>
+
