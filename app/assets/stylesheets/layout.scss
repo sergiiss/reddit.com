@@ -4,23 +4,28 @@ body {
 }
 
 #upper {
-  min-height: 45px;
-  background-color: #b9d1f7;
+  height: 45px;
+  background-color: #d4e2f7;
+}
+
+.index {
+  margin-top: 30px;
 }
 
 .post {
-  margin-bottom: 10px;
+  min-height: 100px;
+  margin-bottom: 30px;
+  margin-left: 20px;
   h4 {
     color: RGB(0,0,255);
+    font-size: 0.9em;
   }
 }
 
-#post-id {
+.post-id {
   display: inline-block;
-  vertical-align: 40px;
-  padding-right: 20px;
+  padding: 0px 20px;
   color: gray;
-
 }
 
 #post-body {
@@ -30,6 +35,10 @@ body {
 #img {
     margin-top: 2px;
     margin-right: 5px;
+}
+
+#new-link {
+  margin-left: 20px;
 }
 
 

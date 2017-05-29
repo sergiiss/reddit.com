@@ -6,6 +6,11 @@
     </div>
 
     <div class="table-row" >
+      <span class="table-cell name"><%= f.label :image %></span>
+      <span class="table-cell"><%= f.file_field :image %></span>
+    </div>
+
+    <div class="table-row" >
       <span class="table-cell name"><%= f.label :text %></span>
       <span class="table-cell"><%= f.text_area :text, size: "80x20" %></span>
     </div>

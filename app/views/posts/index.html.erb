@@ -1,13 +1,20 @@
-<% @posts.each do |post| %>
+<div class="index">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-id"><%= @link_number += 1 %></div>
 
-  <div class="post">
-    <div id="post-id"><%= post.id %></div>
-    <div id="post-body">
-      <h4><%= post.title %></h4>
-      <p><%= post.text %></p>
+      <% if post.present? %>
+        <%= image_tag post.image.url, height: 80 %>
+      <% else %>
+        <%= image_tag 'no_image.png', height: 80 %>
+      <% end %>
+      <div class="post-id"><%=  %></div>
+      <div id="post-body">
+
+        <h4><%= link_to post.title, post_path(post) %></h4>
+      </div>
     </div>
-  </div>
-<% end %>
-
-<%= link_to 'Новая заметка', new_post_path %>
+  <% end %>
+  <div id="new-link"><%= link_to 'Новая заметка', new_post_path %></div>
+</div>
 
