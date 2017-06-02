@@ -4,14 +4,21 @@
       <div class="post-id"><%= @link_number += 1 %></div>
 
       <% if post.present? %>
-        <%= image_tag post.image.url, height: 80 %>
+        <%= image_tag post.image.url, height: 40 %>
       <% else %>
-        <%= image_tag 'no_image.png', height: 80 %>
+        <%= image_tag 'no_image.png', height: 40 %>
       <% end %>
-      <div class="post-id"><%=  %></div>
-      <div id="post-body">
-
-        <h4><%= link_to post.title, post_path(post) %></h4>
+      <div>
+        <div id="post-body">
+          <h4><%= link_to post.title, post_path(post) %></h4>
+        </div>
+        <div>
+          <div class="title-bottom">comment</div>
+          <div class="title-bottom">share</div>
+          <div class="title-bottom">save</div>
+          <div class="title-bottom">hide</div>
+          <div class="title-bottom">report</div>
+        </div>
       </div>
     </div>
   <% end %>

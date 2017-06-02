@@ -13,7 +13,7 @@ body {
 }
 
 .post {
-  min-height: 100px;
+  min-height: 50px;
   margin-bottom: 30px;
   margin-left: 20px;
   h4 {
@@ -39,6 +39,11 @@ body {
 
 #new-link {
   margin-left: 20px;
+}
+
+.title-bottom {
+  font-size: 0.7em;
+  display: inline-block;
 }
 
 
