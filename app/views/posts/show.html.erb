@@ -4,5 +4,7 @@
     <p><%= @post.text %></p>
 </div>
 
-
 <%= link_to 'Назад', root_path %>
+|
+<%= link_to 'Удалить статью', post_path(@post), method: :delete, data: { confirm: 'Вы уверены?'} %>
+

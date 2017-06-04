@@ -3,6 +3,23 @@ body {
   padding: 0px;
 }
 
+.input {
+  display: inline-block;
+  position: relative;
+  background-color: #EFF7FF;
+  border-radius: 10px 0 0 0;
+  width: 222.2px;
+  height: 20px;
+  top: 25px;
+  float: right;
+  span {
+    font-size: 0.8em;
+    padding: 2px;
+    vertical-align: 5px;
+    margin-left: 5px;
+  }
+}
+
 #upper {
   height: 45px;
   background-color: #d4e2f7;
@@ -18,23 +35,25 @@ body {
   margin-left: 20px;
   h4 {
     color: RGB(0,0,255);
-    font-size: 0.9em;
+    font-size: 1.1em;
   }
 }
 
 .post-id {
   display: inline-block;
-  padding: 0px 20px;
+  padding: 0px 10px;
   color: gray;
 }
 
-#post-body {
+.post-body {
   display: inline-block;
+  vertical-align: bottom;
+  padding-left: 5px;
 }
 
 #img {
-    margin-top: 2px;
-    margin-right: 5px;
+  margin-top: 2px;
+  margin-right: 5px;
 }
 
 #new-link {
@@ -46,4 +65,46 @@ body {
   display: inline-block;
 }
 
+.post-title {
+  display: inline-block;
+}
+
+#rew {
+  h4 {
+    margin: 0px;
+  }
+}
+
+#nav {
+  font-size: 0.6em;
+  height: 19px;
+  background-color: #f0f0f0;
+  margin-left: 5px;
+}
+
+.save-form {
+  display: table;
+  margin: 20px 10px;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
+.table-cell.name {
+  vertical-align: top;
+  width: 60px;
+  font-weight: bolder;
+}
+
+#new-link {
+  h1{
+    padding-left: 65px;
+    margin-top: 10px;
+  }
+}
 
