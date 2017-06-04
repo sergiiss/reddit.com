@@ -1,6 +1,10 @@
-body {
+* {
   margin: 0px;
   padding: 0px;
+}
+
+.all-content {
+  width: 100%;
 }
 
 .input {
@@ -26,7 +30,9 @@ body {
 }
 
 .index {
-  margin-top: 30px;
+  display: inline-block;
+  margin-top: 20px;
+  width: 80%;
 }
 
 .post {
@@ -43,12 +49,17 @@ body {
   display: inline-block;
   padding: 0px 10px;
   color: gray;
+  img {
+    color: black;
+  }
 }
 
 .post-body {
   display: inline-block;
   vertical-align: bottom;
   padding-left: 5px;
+  width: 90%;
+
 }
 
 #img {
@@ -58,15 +69,6 @@ body {
 
 #new-link {
   margin-left: 20px;
-}
-
-.title-bottom {
-  font-size: 0.7em;
-  display: inline-block;
-}
-
-.post-title {
-  display: inline-block;
 }
 
 #rew {
@@ -80,6 +82,7 @@ body {
   height: 19px;
   background-color: #f0f0f0;
   margin-left: 5px;
+  padding: 0px;
 }
 
 .save-form {
@@ -101,6 +104,26 @@ body {
   font-weight: bolder;
 }
 
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+.icon2 {
+  display: inline-block;
+}
+
+
+.post-title {
+  span {
+    font-size: 0.7em;
+    padding-right: 5px;
+  }
+}
+
 #new-link {
   h1{
     padding-left: 65px;
@@ -108,3 +131,11 @@ body {
   }
 }
 
+.sidebar {
+  background-image: url(https://tpc.googlesyndication.com/simgad/6849380816888413099);
+  background-repeat: no-repeat;
+  margin: 20px 5px 0px 10px;
+  float: right;
+  width: 17%;
+  height: 300px;
+}

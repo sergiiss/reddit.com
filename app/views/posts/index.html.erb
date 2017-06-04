@@ -2,26 +2,37 @@
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post-id"><%= @link_number += 1 %></div>
-
-        <% if post.present? %>
+      <div class="post-id">
+        <% if post.image.present? %>
           <%= image_tag post.image.url, height: 36, width: 70 %>
         <% else %>
           <%= image_tag 'no_image.png', height: 36, width: 70 %>
         <% end %>
+      </div>
       <div class="post-body">
         <div id="rew">
           <h4><%= link_to post.title, post_path(post) %></h4>
         </div>
-        <div class="post-title">
-          <div class="title-bottom">comment</div>
-          <div class="title-bottom">share</div>
-          <div class="title-bottom">save</div>
-          <div class="title-bottom">hide</div>
-          <div class="title-bottom">report</div>
+        <div class="icon"></div>
+        <div class="icon2">
+          <div class="post-title">
+            <span> submitted</span>
+            <span> GloryHoleVampire</span>
+            <span> to r/funny</span>
+          </div>
+          <div class="post-title">
+            <span>comment</span>
+            <span>share</span>
+            <span>save</span>
+            <span>hide</span>
+            <span>report</span>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
-  <div id="new-link"><%= link_to 'Новая заметка', new_post_path %></div>
 </div>
 
+<div class="sidebar"></div>
+
+<div id="new-link"><%= link_to 'New link', new_post_path %></div>
