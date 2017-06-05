@@ -14,7 +14,7 @@
   border-radius: 10px 0 0 0;
   width: 222.2px;
   height: 20px;
-  top: 25px;
+  top: 24px;
   float: right;
   span {
     font-size: 0.8em;
@@ -27,6 +27,7 @@
 #upper {
   height: 45px;
   background-color: #d4e2f7;
+  border-bottom: 1px solid #5f99cf;
 }
 
 .index {
@@ -76,6 +77,7 @@
     margin: 0px;
     a {
       color: #0000ff;
+      text-decoration: none;
     }
   }
 }
@@ -84,11 +86,16 @@
   font-size: 0.6em;
   height: 19px;
   background-color: #f0f0f0;
-  margin-left: 5px;
+  padding-left: 5px;
   padding: 0px;
+  border-bottom: 1px solid #5f99cf;
   a {
     color: black;
   }
+}
+
+#first-link {
+  padding-left: 5px;
 }
 
 .save-form {
@@ -128,7 +135,6 @@
     color: #888;
   }
 }
-
 
 .post-title {
   color: #888;
