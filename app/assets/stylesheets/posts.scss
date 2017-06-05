@@ -1,3 +1,19 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-show {
+  width: 1056px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  h3 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  p {
+    margin-top: 20px;
+    text-align: justify;
+    width: 960px;
+  }
+}
