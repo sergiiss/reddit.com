@@ -2,9 +2,8 @@
     <h3><%= @post.title %></h3>
     <%= image_tag @post.image.url, size: "960x600" %>
     <p><%= @post.text %></p>
+    <div>
+      <%= link_to("Back", :back, class: 'btn btn-outline-secondary') %>
+      <%= link_to("Delete link", post_path(@post), method: :delete, data: { confirm: 'Вы уверены?'}, class: 'btn btn-outline-secondary') %>
+    </div>
 </div>
-
-<%= link_to 'Назад', root_path %>
-|
-<%= link_to 'Удалить статью', post_path(@post), method: :delete, data: { confirm: 'Вы уверены?'} %>
-
