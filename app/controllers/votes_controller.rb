@@ -13,6 +13,11 @@ class VotesController < ApplicationController
 
   def destroy
     @vote = @post.votes.find_by(:user_id => @current_user.id)
+
+    if @vote == nil
+      @vote = @post.votes.find_by(:post_id => @post.id)
+    end
+
     @vote.destroy
 
     redirect_to root_path
@@ -28,4 +33,3 @@ class VotesController < ApplicationController
     params.permit(:id, :post_id, :user_id)
   end
 end
-

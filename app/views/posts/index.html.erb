@@ -2,25 +2,29 @@
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post-id"><%= @link_number += 1 %></div>
+
       <div class="vote">
-      <% if current_user %>
-        <% if post.from?(current_user) %>
-          <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_vote_path(post, :id), method: :delete) %></div>
+        <% if current_user %>
+          <div class="vote-attribute">
+            <%= link_to_if(post.from?(current_user), image_tag("up.png"), post_vote_path(post, :id), method: :delete) do
+              link_to(image_tag("up.png"), post_votes_path(post), method: :post)
+            end %>
+          </div>
         <% else %>
-          <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_votes_path(post), method: :post) %></div>
+            <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_votes_path(post), method: :post) %></div>
         <% end %>
-      <% else %>
-          <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_votes_path(post), method: :post) %></div>
-      <% end %>
 
-        <div class="vote-attribute"><%= post.votes.count %></div>
+          <div class="vote-attribute"><%= post.votes.count %></div>
 
-        <% if post.votes.count != 0 %>
-          <div class="vote-attribute"><%= link_to(image_tag("down.png"), post_vote_path(post, :id), method: :delete) %></div>
-        <% else %>
-          <div class="vote-attribute"><%= link_to(image_tag("down.png"), "#") %></div>
-        <% end %>
+          <% if post.votes.count != 0 %>
+            <div class="vote-attribute"><%= link_to(image_tag("down.png"), post_vote_path(post, :id), method: :delete) %></div>
+          <% elsif current_user %>
+            <div class="vote-attribute"><%= link_to(image_tag("down.png"), '#') %></div>
+          <% else %>
+            <div class="vote-attribute"><%= link_to(image_tag("down.png"), post_vote_path(post, :id), method: :delete) %></div>
+          <% end %>
       </div>
+
       <div class="post-image">
         <% if post.image.present? %>
           <%= link_to((image_tag post.image.url, width: "70"), post.title) %>
@@ -35,8 +39,8 @@
         <div class="icon"></div>
         <div class="icon2">
           <div class="post-title">
-            <span> submitted</span>
-            <span> GloryHoleVampire</span>
+            <span><%= post.created_at.strftime("submitted %F by") %></span>
+            <span><%= User.find_by(:id => post.user_id).name %></span>
             <span> to r/funny</span>
           </div>
           <div class="post-title" id="post-title">
@@ -60,7 +64,7 @@
     <% end %>
   </div>
   <div class="sidebar1"></div>
-  <div id="new-link"><%= link_to 'Submit a new link', new_post_path %></div>
-  <div id="new-link"><%= link_to 'Submit a new text post', '#' %></div>
+  <div class="new-link"><%= link_to 'Submit a new link', new_post_path %></div>
+  <div class="new-link"><%= link_to 'Submit a new text post', '#' %></div>
   <div class="sidebar2"></div>
 </div>
