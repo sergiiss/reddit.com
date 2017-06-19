@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy'
 
-  resources :posts
+  resources :posts do
+    resources :votes
+  end
 
   resources :users do
     resources :posts

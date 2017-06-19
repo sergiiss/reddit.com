@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user
-    redirect_to new_sessions_path, alert: "Пожалуйста, пройдите авторизацию" unless current_user
+    redirect_to new_sessions_path, alert: "Пожалуйста, пройдите аутентификацию" unless current_user
   end
 
   def current_user

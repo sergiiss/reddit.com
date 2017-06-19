@@ -1,17 +1,36 @@
-<div class="index">
+<div class="post-index">
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post-id"><%= @link_number += 1 %></div>
+      <div class="vote">
+      <% if current_user %>
+        <% if post.from?(current_user) %>
+          <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_vote_path(post, :id), method: :delete) %></div>
+        <% else %>
+          <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_votes_path(post), method: :post) %></div>
+        <% end %>
+      <% else %>
+          <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_votes_path(post), method: :post) %></div>
+      <% end %>
+
+        <div class="vote-attribute"><%= post.votes.count %></div>
+
+        <% if post.votes.count != 0 %>
+          <div class="vote-attribute"><%= link_to(image_tag("down.png"), post_vote_path(post, :id), method: :delete) %></div>
+        <% else %>
+          <div class="vote-attribute"><%= link_to(image_tag("down.png"), "#") %></div>
+        <% end %>
+      </div>
       <div class="post-image">
         <% if post.image.present? %>
-          <%= link_to((image_tag post.image.url, size: "70x36"), post_path(post)) %>
+          <%= link_to((image_tag post.image.url, width: "70"), post.title) %>
         <% else %>
-          <%= link_to((image_tag 'no_image.png', size: "70x36"), post_path(post)) %>
+          <%= link_to((image_tag '1111.jpeg', width: "70"), post.title) %>
         <% end %>
       </div>
       <div class="post-body">
         <div id="rew">
-          <h4><%= link_to post.title, post_path(post) %></h4>
+          <h4><%= link_to post.text, post.title %></h4>
         </div>
         <div class="icon"></div>
         <div class="icon2">
@@ -33,6 +52,15 @@
   <% end %>
 </div>
 
-<div class="sidebar"></div>
-
-<div id="new-link"><%= link_to 'New link', new_post_path %></div>
+<div class="sidebar">
+  <div class="search">
+    <%= form_tag("/search", :method => "get") do %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+  <div class="sidebar1"></div>
+  <div id="new-link"><%= link_to 'Submit a new link', new_post_path %></div>
+  <div id="new-link"><%= link_to 'Submit a new text post', '#' %></div>
+  <div class="sidebar2"></div>
+</div>

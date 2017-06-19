@@ -10,7 +10,7 @@
     <div class="all-content">
       <div id="nav">
         <span id="first-link"><%= link_to("MY SUBREDDITS", "url") %></span>
-        <span><%= link_to("HOME", "url") %></span>
+        <span><%= link_to("HOME", root_path) %></span>
         -
         <span><%= link_to("POPULAR", "url") %></span>
         -
@@ -63,7 +63,31 @@
         <span><%= link_to("IAMA", "url") %></span>
       </div>
       <div id="upper">
-        <%= link_to image_tag("https://b.thumbs.redditmedia.com/-KIq1WArgXPnB02N493dZuaRlH_Q_ypFC7S5PQ3I9wE.png", size: "120x40", id: "img"), root_path %>
+        <%= link_to image_tag("https://b.thumbs.redditmedia.com/-KIq1WArgXPnB02N493dZuaRlH_Q_ypFC7S5PQ3I9wE.png", size: "120x40", id: "img"),root_path %>
+
+        <div id="navi-top">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home" role="tab">hot</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#profile" role="tab">new</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#messages" role="tab">rising</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#settings" role="tab">controversial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#settings" role="tab">top</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#settings" role="tab">gided</a>
+            </li>
+          </ul>
+        </div>
+
         <div class="input">
           <% if current_user %>
             <span><%= current_user.name %></span>
@@ -76,6 +100,7 @@
       </div>
 
       <%= yield %>
+
     </div>
   </body>
 </html>
