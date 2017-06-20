@@ -8,15 +8,17 @@ class VotesController < ApplicationController
   def create
     @vote = @post.votes.create(vote_params.merge(:user_id => @current_user.id))
 
+    @vote_down = @post.vote_downs.find_by(:user_id => @current_user.id)
+
+    if @vote_down
+      @vote_down.destroy
+    end
+
     redirect_to root_path
   end
 
   def destroy
     @vote = @post.votes.find_by(:user_id => @current_user.id)
-
-    if @vote == nil
-      @vote = @post.votes.find_by(:post_id => @post.id)
-    end
 
     @vote.destroy
 
