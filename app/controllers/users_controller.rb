@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        input_user_to_session
         format.html { redirect_to @user, notice: 'Пользователь был успешно создан.' }
         format.json { render :show, status: :created, location: @user }
       else

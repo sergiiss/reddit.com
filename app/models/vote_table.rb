@@ -1,4 +1,4 @@
-class VoteDown < ApplicationRecord
+class VoteTable < ApplicationRecord
   belongs_to :user
   belongs_to :post
 end

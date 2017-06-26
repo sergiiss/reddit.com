@@ -4,15 +4,14 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   resources :posts do
-    resources :votes
-    resources :vote_downs
+    resources :vote_tables
+    get '/up', to: "vote_tables#up"
+    get '/down', to: "vote_tables#down"
   end
 
   resources :users do
     resources :posts
   end
-
-
 
   root to: "posts#index"
 end
