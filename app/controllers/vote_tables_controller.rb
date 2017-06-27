@@ -6,9 +6,9 @@ class VoteTablesController < ApplicationController
   end
 
   def up
-    @vote_table = @post.vote_table.create(vote_table_params.merge(:user_id => @current_user.id, vote_type: 'up'))
+    @vote_table = @post.vote_tables.create(vote_table_params.merge(:user_id => @current_user.id, vote_type: 'up'))
 
-    @vote_down = @post.vote_table.find_by(:user_id => @current_user.id, vote_type: ['down'])
+    @vote_down = @post.vote_tables.find_by(:user_id => @current_user.id, vote_type: ['down'])
 
     if @vote_down
       @vote_down.destroy
@@ -18,9 +18,9 @@ class VoteTablesController < ApplicationController
   end
 
   def down
-    @vote_table = @post.vote_table.create(vote_table_params.merge(:user_id => @current_user.id, vote_type: 'down'))
+    @vote_table = @post.vote_tables.create(vote_table_params.merge(:user_id => @current_user.id, vote_type: 'down'))
 
-    @vote_up = @post.vote_table.find_by(:user_id => @current_user.id, vote_type: ['up'])
+    @vote_up = @post.vote_tables.find_by(:user_id => @current_user.id, vote_type: ['up'])
 
     if @vote_up
       @vote_up.destroy
@@ -33,7 +33,7 @@ class VoteTablesController < ApplicationController
   end
 
   def destroy
-    @vote_table = @post.vote_table.find_by(:user_id => @current_user.id, vote_type: ['up', 'down'])
+    @vote_table = @post.vote_tables.find_by(:user_id => @current_user.id, vote_type: ['up', 'down'])
 
     @vote_table.destroy
 
