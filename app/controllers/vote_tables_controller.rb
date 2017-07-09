@@ -1,11 +1,7 @@
 class VoteTablesController < ApplicationController
-  before_action :find_post, only: [ :create, :destroy, :up, :down ]
-
-  def new
-    @vote_table = VoteTable.new
-  end
-
   def up
+    find_post
+
     @vote_table = @post.vote_tables.create(vote_table_params.merge(:user_id => @current_user.id, vote_type: 'up'))
 
     @vote_down = @post.vote_tables.find_by(:user_id => @current_user.id, vote_type: ['down'])
@@ -18,6 +14,8 @@ class VoteTablesController < ApplicationController
   end
 
   def down
+    find_post
+
     @vote_table = @post.vote_tables.create(vote_table_params.merge(:user_id => @current_user.id, vote_type: 'down'))
 
     @vote_up = @post.vote_tables.find_by(:user_id => @current_user.id, vote_type: ['up'])
@@ -29,10 +27,9 @@ class VoteTablesController < ApplicationController
     redirect_to root_path
   end
 
-  def create
-  end
-
   def destroy
+    find_post
+
     @vote_table = @post.vote_tables.find_by(:user_id => @current_user.id, vote_type: ['up', 'down'])
 
     @vote_table.destroy

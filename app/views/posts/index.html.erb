@@ -11,7 +11,7 @@
             end %>
           </div>
         <% else %>
-            <div class="vote-attribute"><%= link_to(image_tag("up.png"), post_votes_path(post), method: :post) %></div>
+            <div class="vote-attribute"><%= image_tag "up.png" %></div>
         <% end %>
 
         <div class="vote-attribute"><%= post.vote_tables.where(vote_type: 'up').count - post.vote_tables.where(vote_type: 'down').count %></div>
@@ -23,7 +23,7 @@
             end %>
           </div>
         <% else %>
-            <div class="vote-attribute"><%= link_to(image_tag("down.png"), post_vote_downs_path(post), method: :post) %></div>
+            <div class="vote-attribute"><%= image_tag "down.png" %></div>
         <% end %>
       </div>
 

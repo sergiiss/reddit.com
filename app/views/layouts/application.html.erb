@@ -92,9 +92,9 @@
           <% if current_user %>
             <span><%= current_user.name %></span>
             <span>|</span>
-            <span><%= link_to 'logout', sessions_destroy_path %></span>
+            <span><%= link_to('logout', sessions_destroy_path) %></span>
           <% else %>
-            <span><%= link_to("log in", new_sessions_path) %></span>
+            <span><%= link_to('log in', new_sessions_path) %></span>
           <% end %>
         </div>
       </div>
