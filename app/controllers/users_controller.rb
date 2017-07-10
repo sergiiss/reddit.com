@@ -1,20 +1,24 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [ :new, :create ]
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
   def index
     @users = User.all
-  end
-
-  def show
   end
 
   def new
     @user = User.new
   end
 
+  def show
+    set_user
+  end
+
+  def update
+    set_user
+  end
+
   def edit
+    set_user
   end
 
   def create
@@ -33,6 +37,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    set_user
+
     if current_user.name == 'admin'
       @user.destroy
       respond_to do |format|

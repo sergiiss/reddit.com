@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
 
-  has_many :vote_tables
+  has_many :votes
   has_many :comments
 
   validates :title, :text, presence: true
@@ -10,10 +10,10 @@ class Post < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def from_vote_up?(user)
-    vote_tables.where({user_id: user.id, vote_type: 'up'}).present?
+    votes.where({user_id: user.id, vote_type: 'up'}).present?
   end
 
   def from_vote_down?(user)
-    vote_tables.where({user_id: user.id, vote_type: 'down'}).present?
+    votes.where({user_id: user.id, vote_type: 'down'}).present?
   end
 end

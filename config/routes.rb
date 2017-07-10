@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   resources :posts do
-    resources :vote_tables
-    get '/up', to: "vote_tables#up"
-    get '/down', to: "vote_tables#down"
+    resources :votes
+    get '/up', to: "votes#up"
+    get '/down', to: "votes#down"
   end
 
   resources :users do

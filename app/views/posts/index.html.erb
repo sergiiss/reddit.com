@@ -6,7 +6,7 @@
       <div class="vote">
         <% if current_user %>
           <div class="vote-attribute">
-            <%= link_to_if(post.from_vote_up?(current_user), image_tag("up_press.png"), post_vote_table_path(post, :id), method: :delete) do
+            <%= link_to_if(post.from_vote_up?(current_user), image_tag("up_press.png"), post_vote_path(post, :id), method: :delete) do
               link_to(image_tag("up.png"), post_up_path(post))
             end %>
           </div>
@@ -14,11 +14,11 @@
             <div class="vote-attribute"><%= image_tag "up.png" %></div>
         <% end %>
 
-        <div class="vote-attribute"><%= post.vote_tables.where(vote_type: 'up').count - post.vote_tables.where(vote_type: 'down').count %></div>
+        <div class="vote-attribute"><%= post.votes.where(vote_type: 'up').count - post.votes.where(vote_type: 'down').count %></div>
 
         <% if current_user %>
           <div class="vote-attribute">
-            <%= link_to_if(post.from_vote_down?(current_user), image_tag("down_press.png"), post_vote_table_path(post, :id), method: :delete) do
+            <%= link_to_if(post.from_vote_down?(current_user), image_tag("down_press.png"), post_vote_path(post, :id), method: :delete) do
               link_to(image_tag("down.png"), post_down_path(post))
             end %>
           </div>
