@@ -14,7 +14,7 @@
             <div class="vote-attribute"><%= image_tag "up.png" %></div>
         <% end %>
 
-        <div class="vote-attribute"><%= post.votes.where(vote_type: 'up').count - post.votes.where(vote_type: 'down').count %></div>
+        <div class="vote-attribute"><%= post.summ_votes_to_post %></div>
 
         <% if current_user %>
           <div class="vote-attribute">

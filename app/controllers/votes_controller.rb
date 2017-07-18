@@ -2,13 +2,7 @@ class VotesController < ApplicationController
   def up
     find_post
 
-    @vote = @post.votes.create(vote_params.merge(:user_id => @current_user.id, vote_type: 'up'))
-
-    @vote_down = @post.votes.find_by(:user_id => @current_user.id, vote_type: ['down'])
-
-    if @vote_down
-      @vote_down.destroy
-    end
+    @post.vote_up(@current_user)
 
     redirect_to root_path
   end
@@ -16,13 +10,7 @@ class VotesController < ApplicationController
   def down
     find_post
 
-    @vote = @post.votes.create(vote_params.merge(:user_id => @current_user.id, vote_type: 'down'))
-
-    @vote_up = @post.votes.find_by(:user_id => @current_user.id, vote_type: ['up'])
-
-    if @vote_up
-      @vote_up.destroy
-    end
+    @post.vote_down(@current_user)
 
     redirect_to root_path
   end
