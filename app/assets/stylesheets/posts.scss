@@ -36,6 +36,7 @@
 .post-image {
   display: inline-block;
   vertical-align: top;
+  overflow: hidden;
   margin: 0px 10px;
   width: 70px;
   max-height: 70px;
@@ -46,6 +47,7 @@
   }
   img {
     max-height: 70px;
+
   }
 }
 
